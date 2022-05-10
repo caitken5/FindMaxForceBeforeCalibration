@@ -40,15 +40,15 @@ def get_force_char(row_of_data):
         row_of_data = row_of_data.reshape((1, -1))  # Reshapes data to two dimensions where the row has a value of 1.
     minimum = np.min(row_of_data)
     maximum = np.max(row_of_data)
-    mean = np.mean(row_of_data)
-    median = np.median(row_of_data)
-    std = np.std(row_of_data)
+    mean = np.mean(np.abs(row_of_data))
+    median = np.median(np.abs(row_of_data))
+    std = np.std(np.abs(row_of_data))
     return np.asarray([minimum, maximum, mean, median, std])
 
 
 load_path = 'D:/PD_Participant_Data/LLR_DATA_ANALYSIS_CLEANED/LLR_DATA_NPY_FILES/'
 # load_path = 'G:/PD_Participant_Data/LLR_DATA_ANALYSIS_CLEANED/LLR_DATA_NPY_FILES'
-save_path = 'D:/PD_Participant_Data/LLR_DATA_ANALYSIS_CLEANED/UNCALIBRATED_FORCE_STATISTICS.CSV'
+save_path = 'D:/PD_Participant_Data/LLR_DATA_ANALYSIS_CLEANED/UNCALIBRATED_ABSOLUTE_FORCE_STATISTICS.CSV'
 columns = ["Fx_min", "Fx_max", "Fx_mean", "Fx_median", "Fx_std", "Fy_min", "Fy_max", "Fy_mean", "Fy_median", "Fy_std",
            "Tz_min", "Tz_max", "Tz_mean", "Tz_median", "Tz_std", "Fz_min", "Fz_max", "Fz_mean", "Fz_median", "Fz_std"]
 
